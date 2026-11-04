@@ -18,7 +18,8 @@
 首次启用：在本仓库 Actions secrets 中配置 COMMIT_STATS_TOKEN；使用 TimeseekerKK 的 Classic PAT，授予 repo 和 read:user。
 工作流需要读取 owned_private_repos 来核验私有仓库覆盖范围；读取失败时保留旧卡片，不发布部分结果。
 提交数减少至少 10 条且降幅超过 20% 时保留旧卡片并报错；核实仓库或分支变动后，可手动运行工作流并选择 allow_decrease。
-卡片内的 Total Commits 使用上述计数，其余统计和等级来自 github-stats-extended；首次完整统计前 Total Commits 显示 pending。 -->
+卡片内的 Total Commits 使用上述计数，其余统计和等级来自 github-stats-extended；首次完整统计前 Total Commits 显示 pending。
+卡片底部使用与统计文字一致的粗体显示 Last synced（UTC+8，北京时间）；每次成功运行都会更新时间，即使统计数值未变。同步失败时保留上次卡片与时间。 -->
 
 <br clear="right">
 

@@ -1,4 +1,5 @@
 import importlib.util
+from datetime import datetime, timezone
 import io
 import json
 import os
@@ -219,6 +220,40 @@ class ClientTests(unittest.TestCase):
 
 
 class OutputTests(unittest.TestCase):
+    def test_sync_time_uses_beijing_date_and_fits_inside_card(self):
+        synced_at = datetime(2026, 11, 4, 20, 30, 15, tzinfo=timezone.utc)
+        root = ET.fromstring(stats.render_card(CARD, stats.CommitStats(52, 1, 3, False),
+                                              synced_at=synced_at))
+        footer = root.find(".//*[@data-testid='sync-time']")
+        self.assertEqual(footer.text, "Last synced: 2026-11-05 04:30:15 (UTC+8)")
+        self.assertEqual(footer.get("class"), "stat bold")
+        self.assertNotIn("font-size", footer.attrib)
+        self.assertNotIn("fill", footer.attrib)
+        self.assertEqual(root.get("height"), "219")
+        self.assertEqual(root.get("viewBox"), "0 0 450 219")
+        self.assertLess(float(footer.get("y")), float(root.get("height")))
+        self.assertIn(footer.text, root.find("{http://www.w3.org/2000/svg}desc").text)
+
+    def test_successful_sync_updates_time_even_when_counts_are_unchanged(self):
+        with tempfile.TemporaryDirectory(dir=SCRIPT.parents[2]) as directory:
+            output = Path(directory) / "card.svg"
+            result = stats.CommitStats(52, 1, 3, False)
+            first = datetime(2026, 11, 4, 16, 17, tzinfo=timezone.utc)
+            second = datetime(2026, 11, 5, 16, 17, tzinfo=timezone.utc)
+            stats.write_card(output, CARD, result, synced_at=first)
+            before = output.read_bytes()
+            stats.write_card(output, CARD, result, synced_at=second)
+            self.assertNotEqual(output.read_bytes(), before)
+            root = ET.fromstring(output.read_text(encoding="utf-8"))
+            self.assertEqual(root.find(".//*[@data-testid='commits']").text, "52")
+            self.assertEqual(root.find(".//*[@data-testid='sync-time']").text,
+                             "Last synced: 2026-11-06 00:17:00 (UTC+8)")
+
+    def test_pending_card_does_not_claim_a_successful_sync(self):
+        root = ET.fromstring(stats.render_card(CARD))
+        self.assertEqual(root.find(".//*[@data-testid='sync-time']").text,
+                         "Last synced: pending (UTC+8)")
+
     def test_first_complete_scan_can_replace_pending_card(self):
         with tempfile.TemporaryDirectory(dir=SCRIPT.parents[2]) as directory:
             output = Path(directory) / "card.svg"
@@ -271,11 +306,13 @@ class OutputTests(unittest.TestCase):
     def test_failed_scan_retains_previous_card(self):
         with tempfile.TemporaryDirectory(dir=SCRIPT.parents[2]) as directory:
             output = Path(directory) / "card.svg"
-            output.write_text("previous complete result", encoding="utf-8")
+            stats.write_card(output, CARD, stats.CommitStats(52, 1, 3, False),
+                             synced_at=datetime(2026, 11, 4, 16, 17, tzinfo=timezone.utc))
+            previous = output.read_bytes()
             with patch.object(stats, "count_commits", side_effect=stats.StatsError("incomplete")), \
                  patch("sys.stderr", new_callable=io.StringIO):
                 self.assertEqual(stats.main(["--output", str(output)]), 1)
-            self.assertEqual(output.read_text(encoding="utf-8"), "previous complete result")
+            self.assertEqual(output.read_bytes(), previous)
 
     def test_missing_token_fails_before_network_or_output(self):
         with tempfile.TemporaryDirectory(dir=SCRIPT.parents[2]) as directory, patch.dict(os.environ, {}, clear=True), \
@@ -299,14 +336,16 @@ class OutputTests(unittest.TestCase):
         with tempfile.TemporaryDirectory(dir=SCRIPT.parents[2]) as directory:
             output = Path(directory) / "card.svg"
             result = stats.CommitStats(52, 1, 3, False)
-            stats.write_card(output, CARD, result)
+            synced_at = datetime(2026, 11, 4, 16, 17, tzinfo=timezone.utc)
+            stats.write_card(output, CARD, result, synced_at=synced_at)
             before = output.stat().st_mtime_ns
-            stats.write_card(output, CARD, result)
+            stats.write_card(output, CARD, result, synced_at=synced_at)
             self.assertEqual(output.stat().st_mtime_ns, before)
 
     def test_commit_replacement_preserves_card_layout_and_other_metrics(self):
         root = ET.fromstring(stats.render_card(CARD, stats.CommitStats(1252, 16, 20, False)))
-        self.assertEqual(root.attrib, ET.fromstring(CARD).attrib)
+        self.assertEqual(root.attrib, {**ET.fromstring(CARD).attrib,
+                                      "height": "219", "viewBox": "0 0 450 219"})
         for key, expected in (("commits", "1,252"), ("stars", "3"), ("prs", "13"),
                               ("header", "Timeseeker's GitHub Stats"), ("level-rank-icon", "C")):
             self.assertEqual(root.find(f".//*[@data-testid='{key}']").text, expected)

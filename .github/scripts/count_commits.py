@@ -6,6 +6,7 @@ with Contents: read. --public-only is an explicitly narrower diagnostic mode.
 
 import argparse
 from dataclasses import dataclass
+from datetime import datetime, timedelta, timezone
 import json
 import os
 from pathlib import Path
@@ -192,7 +193,7 @@ def fetch_stats_card(username, opener=urlopen):
         raise StatsError("Stats card download failed; previous card retained.") from None
 
 
-def render_card(source, stats=None):
+def render_card(source, stats=None, *, synced_at=None):
     """Keep the upstream card and replace its commit metric with our own count."""
     namespace = "http://www.w3.org/2000/svg"
     ET.register_namespace("", namespace)
@@ -229,6 +230,28 @@ def render_card(source, stats=None):
     labels[0].text = label + ":"
     value_node.text = value
     description.text = updated_description + ". " + details
+    if stats is not None:
+        synced_at = synced_at or datetime.now(timezone.utc)
+        beijing_time = synced_at.astimezone(timezone(timedelta(hours=8)))
+        sync_label = f"Last synced: {beijing_time:%Y-%m-%d %H:%M:%S} (UTC+8)"
+    else:
+        sync_label = "Last synced: pending (UTC+8)"
+    try:
+        view_box = [float(value) for value in root.attrib["viewBox"].split()]
+        if len(view_box) != 4:
+            raise ValueError
+        original_height = view_box[3]
+        view_box[3] += 24
+    except (KeyError, ValueError):
+        raise StatsError("Stats card dimensions changed; previous card retained.") from None
+    root.set("height", f"{view_box[3]:g}")
+    root.set("viewBox", " ".join(f"{value:g}" for value in view_box))
+    footer = ET.SubElement(root, f"{{{namespace}}}text", {
+        "data-testid": "sync-time", "x": "25", "y": f"{original_height + 9:g}",
+        "class": "stat bold",
+    })
+    footer.text = sync_label
+    description.text += " " + sync_label + "."
     return "\n".join(line.rstrip() for line in ET.tostring(root, encoding="unicode").splitlines()) + "\n"
 
 
@@ -254,8 +277,8 @@ def check_decrease(output, stats, allow_decrease=False):
         )
 
 
-def write_card(output, source, stats=None, allow_decrease=False):
-    content = render_card(source, stats)
+def write_card(output, source, stats=None, allow_decrease=False, *, synced_at=None):
+    content = render_card(source, stats, synced_at=synced_at)
     output = Path(output)
     check_decrease(output, stats, allow_decrease)
     if output.exists() and output.read_text(encoding="utf-8") == content:
