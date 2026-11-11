@@ -1,16 +1,25 @@
----
+<h1 align="center">Timeseeker</h1>
 
-## 🕵️‍♂️ Timeseeker / TimeseekerKK <img align="right" src="https://visitor-badge.laobi.icu/badge?page_id=TimeseekerKK.visitor-badge&left_text=Views&format=true" width="72" alt="visitor badge">
+<p align="center">@TimeseekerKK</p>
 
----
+<p align="center">Full-stack · Desktop · Embedded UI · Flutter · Automation</p>
 
-### 📰 Basic info:
+<p align="center">
+  <a href="https://github.com/TimeseekerKK"><img src="https://img.shields.io/badge/GitHub-TimeseekerKK-181717?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub: TimeseekerKK"></a>
+  <a href="https://gitee.com/Timeseeker"><img src="https://img.shields.io/badge/Gitee-Timeseeker-C71D23?style=flat-square&amp;logo=gitee&amp;logoColor=white" alt="Gitee: Timeseeker"></a>
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=TimeseekerKK.visitor-badge&amp;left_text=Views&amp;format=true" width="72" alt="Profile views">
+</p>
+
+<p align="center"><em>Build, document, reuse.</em></p>
+
+## About
 
 <img align="right" width="330" src="./assets/github-stats.svg" alt="Timeseeker's GitHub Stats">
 
-- 🧭 **Focus:** Full-stack admin, embedded UI, Flutter & automation
-- 🔗 **Links:** [github.com/TimeseekerKK](https://github.com/TimeseekerKK) · [gitee.com/Timeseeker](https://gitee.com/Timeseeker)
-- 📚 **Motto:** Build, document, reuse — `UTC+8`
+- **Full-stack dashboards**
+- **Windows desktop tools with Python & Qt**
+- **Embedded GUI and firmware**
+- **Flutter apps and automation**
 
 <!-- 统计所有自有仓库（含 fork、私有仓库）现存分支中属于 TimeseekerKK 的作者提交；包含 merge，跨仓库按 SHA 去重。
 合并当前用户名与已核实的历史作者邮箱查询，以 GitHub 账户 ID 校验归属；未关联账户的提交仅接受已核实邮箱。
@@ -23,31 +32,40 @@
 
 <br clear="right">
 
-### 💪 Abilities:
+## Toolbox
 
-- 🧩 `Vue 3` / `TypeScript` / `Spring Boot` / `MySQL` — full-stack dashboards
-- 🚚 `Spring Cloud Gateway` / `Dubbo` / `RabbitMQ` / `Nacos` — microservices
-- 📱 `Flutter` / `Dart` — prototypes with local state & REST APIs
-- 🔌 `C` / `AT32F435/437` / `LVGL` / `Keil MDK` — embedded GUI & firmware
-- 🐍 `Python` — image-recognition automation & contributions
+| Area | Technologies |
+| :--- | :--- |
+| **Web** | `Vue 3` · `TypeScript` · `Spring Boot` · `MySQL` |
+| **Desktop** | `Python` · `PySide6 / Qt` · `Windows API (ctypes)` |
+| **Mobile** | `Flutter` · `Dart` |
+| **Embedded** | `C` · `AT32F435/437` · `LVGL` · `Keil MDK` |
+| **Automation** | `Python` |
+| **Build & CI** | `PyInstaller` · `PowerShell` · `unittest` · `GitHub Actions` |
 
-<br clear="right">
+Flutter prototypes with local state & REST APIs · Python image-recognition automation & contributions.
 
-### 🧭 Project shelf
+## Projects
 
-- 📊 **Dashboard:** [student-score-admin-system](https://github.com/TimeseekerKK/student-score-admin-system)
-- 🚚 **Microservices:** [tms-service](https://github.com/TimeseekerKK/tms-service)
-- 📱 **Mobile:** [suiwuyou-project](https://github.com/TimeseekerKK/suiwuyou-project)
-- 🔌 **Embedded UI:** [14-AT32-LVGL-Nos-template](https://github.com/TimeseekerKK/14-AT32-LVGL-Nos-template)
-- 🧹 **Firmware:** [Airclean_board](https://github.com/TimeseekerKK/Airclean_board)
-- 🎛 **Template:** [NiceAdmin-Bootstrap](https://github.com/TimeseekerKK/NiceAdmin-Bootstrap)
-- 📚 **Docs:** [Share-Experience-For-Github.edu](https://github.com/TimeseekerKK/Share-Experience-For-Github.edu)
+| Category | Repository | Description |
+| :--- | :--- | :--- |
+| Desktop | [ValorantToxicTamer](https://github.com/TimeseekerKK/ValorantToxicTamer) | Windows tray messaging, hotkeys & auto-updates |
+| Dashboard | [student-score-admin-system](https://github.com/TimeseekerKK/student-score-admin-system) | Student score administration |
+| Mobile | [suiwuyou-project](https://github.com/TimeseekerKK/suiwuyou-project) | Flutter app project |
+| Embedded UI | [14-AT32-LVGL-Nos-template](https://github.com/TimeseekerKK/14-AT32-LVGL-Nos-template) | AT32 + LVGL template |
+| Firmware | [Airclean_board](https://github.com/TimeseekerKK/Airclean_board) | Board firmware |
+| Docs | [Share-Experience-For-Github.edu](https://github.com/TimeseekerKK/Share-Experience-For-Github.edu) | GitHub notes & experience |
 
-### ⌨ Find me <img align="right" width="390" src="./github-contribution-grid-snake.svg" alt="GitHub contribution snake">
+## Contributions
 
-[![GitHub](https://img.shields.io/badge/GitHub-TimeseekerKK-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/TimeseekerKK)
-[![Gitee](https://img.shields.io/badge/Gitee-Timeseeker-C71D23?style=flat-square&logo=gitee&logoColor=white)](https://gitee.com/Timeseeker)
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./github-contribution-grid-snake-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./github-contribution-grid-snake.svg">
+    <img src="./github-contribution-grid-snake.svg" width="880" alt="GitHub contribution snake">
+  </picture>
+</p>
 
-<br clear="right">
-
----
+<p align="center">
+  <a href="https://github.com/TimeseekerKK">GitHub</a> · <a href="https://gitee.com/Timeseeker">Gitee</a> · UTC+8
+</p>
