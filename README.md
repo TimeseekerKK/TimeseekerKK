@@ -1,25 +1,32 @@
 <h1 align="center">Timeseeker</h1>
 
-<p align="center">@TimeseekerKK</p>
-
-<p align="center">Full-stack · Desktop · Embedded UI · Flutter · Automation</p>
+<p align="center">
+  <strong>@TimeseekerKK</strong><br>
+  Full-stack · Desktop · Embedded UI · Flutter · Automation
+</p>
 
 <p align="center">
-  <a href="https://github.com/TimeseekerKK"><img src="https://img.shields.io/badge/GitHub-TimeseekerKK-181717?style=flat-square&amp;logo=github&amp;logoColor=white" alt="GitHub: TimeseekerKK"></a>
-  <a href="https://gitee.com/Timeseeker"><img src="https://img.shields.io/badge/Gitee-Timeseeker-C71D23?style=flat-square&amp;logo=gitee&amp;logoColor=white" alt="Gitee: Timeseeker"></a>
-  <img src="https://visitor-badge.laobi.icu/badge?page_id=TimeseekerKK.visitor-badge&amp;left_text=Views&amp;format=true" width="72" alt="Profile views">
+  <a href="https://github.com/TimeseekerKK"><img src="https://img.shields.io/badge/GitHub-TimeseekerKK-181717?style=flat-square&amp;logo=github&amp;logoColor=white" height="20" alt="GitHub: TimeseekerKK"></a>
+  <a href="https://gitee.com/Timeseeker"><img src="https://img.shields.io/badge/Gitee-Timeseeker-C71D23?style=flat-square&amp;logo=gitee&amp;logoColor=white" height="20" alt="Gitee: Timeseeker"></a>
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=TimeseekerKK.visitor-badge&amp;left_text=Views&amp;format=true" height="20" alt="Profile views">
 </p>
 
 <p align="center"><em>Build, document, reuse.</em></p>
 
+<p align="center">
+  <a href="#about">About</a> · <a href="#toolbox">Toolbox</a> · <a href="#projects">Projects</a> · <a href="#contributions">Contributions</a>
+</p>
+
 ## About
+
+I build practical tools across platforms.
 
 <img align="right" width="330" src="./assets/github-stats.svg" alt="Timeseeker's GitHub Stats">
 
-- **Full-stack dashboards**
-- **Windows desktop tools with Python & Qt**
-- **Embedded GUI and firmware**
-- **Flutter apps and automation**
+- **Web** · Full-stack dashboards
+- **Desktop** · Windows tools with Python & Qt
+- **Embedded** · GUI and firmware
+- **Mobile & automation** · Flutter apps and Python workflows
 
 <!-- 统计所有自有仓库（含 fork、私有仓库）现存分支中属于 TimeseekerKK 的作者提交；包含 merge，跨仓库按 SHA 去重。
 合并当前用户名与已核实的历史作者邮箱查询，以 GitHub 账户 ID 校验归属；未关联账户的提交仅接受已核实邮箱。
@@ -47,14 +54,14 @@ Flutter prototypes with local state & REST APIs · Python image-recognition auto
 
 ## Projects
 
-| Category | Repository | Description |
+| Project | Focus | Description |
 | :--- | :--- | :--- |
-| Desktop | [ValorantToxicTamer](https://github.com/TimeseekerKK/ValorantToxicTamer) | Windows tray messaging, hotkeys & auto-updates |
-| Dashboard | [student-score-admin-system](https://github.com/TimeseekerKK/student-score-admin-system) | Student score administration |
-| Mobile | [suiwuyou-project](https://github.com/TimeseekerKK/suiwuyou-project) | Flutter app project |
-| Embedded UI | [14-AT32-LVGL-Nos-template](https://github.com/TimeseekerKK/14-AT32-LVGL-Nos-template) | AT32 + LVGL template |
-| Firmware | [Airclean_board](https://github.com/TimeseekerKK/Airclean_board) | Board firmware |
-| Docs | [Share-Experience-For-Github.edu](https://github.com/TimeseekerKK/Share-Experience-For-Github.edu) | GitHub notes & experience |
+| **[ValorantToxicTamer](https://github.com/TimeseekerKK/ValorantToxicTamer)** | Desktop | Windows tray messaging, hotkeys & auto-updates |
+| **[student-score-admin-system](https://github.com/TimeseekerKK/student-score-admin-system)** | Dashboard | Student score administration |
+| **[suiwuyou-project](https://github.com/TimeseekerKK/suiwuyou-project)** | Mobile | Flutter app project |
+| **[14-AT32-LVGL-Nos-template](https://github.com/TimeseekerKK/14-AT32-LVGL-Nos-template)** | Embedded UI | AT32 + LVGL template |
+| **[Airclean_board](https://github.com/TimeseekerKK/Airclean_board)** | Firmware | Board firmware |
+| **[Share-Experience-For-Github.edu](https://github.com/TimeseekerKK/Share-Experience-For-Github.edu)** | Docs | GitHub notes & experience |
 
 ## Contributions
 
@@ -67,5 +74,5 @@ Flutter prototypes with local state & REST APIs · Python image-recognition auto
 </p>
 
 <p align="center">
-  <a href="https://github.com/TimeseekerKK">GitHub</a> · <a href="https://gitee.com/Timeseeker">Gitee</a> · UTC+8
+  <a href="https://github.com/TimeseekerKK">GitHub</a> · <a href="https://gitee.com/Timeseeker">Gitee</a> · UTC+8 · <a href="#timeseeker">Back to top ↑</a>
 </p>
