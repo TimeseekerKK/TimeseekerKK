@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="450" height="219" viewBox="0 0 450 219" fill="none" role="img" aria-labelledby="descId">
         <title id="titleId">Timeseeker's GitHub Stats, Rank: C+</title>
-        <desc id="descId">Total Stars Earned: 3, Total Commits: 272, Total PRs: 29, Total Issues: 4, Contributed to (last year): 4. Authored commits matched by account ID or confirmed historical author email in public + private repositories, all current branches, including merges, deduplicated by SHA across repositories. Scanned 13 repositories and 25 branches. Last synced: 2026-11-27 08:39:11 (UTC+8).</desc>
+        <desc id="descId">Total Stars Earned: 3, Total Commits: 272, Total PRs: 29, Total Issues: 4, Contributed to (last year): 4. Authored commits matched by account ID or confirmed historical author email in public + private repositories, all current branches, including merges, deduplicated by SHA across repositories. Scanned 13 repositories and 25 branches. Last synced: 2026-11-28 08:05:50 (UTC+8).</desc>
         <style>
           .header {
             font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
@@ -64,7 +64,7 @@
         stroke-dashoffset: 251.32741228718345;
       }
       to {
-        stroke-dashoffset: 218.01347026100143;
+        stroke-dashoffset: 217.98830790022566;
       }
     }
 
@@ -158,4 +158,4 @@
     </svg>
 
         </g>
-      <text data-testid="sync-time" x="25" y="204" class="stat bold">Last synced: 2026-11-27 08:39:11 (UTC+8)</text></svg>
+      <text data-testid="sync-time" x="25" y="204" class="stat bold">Last synced: 2026-11-28 08:05:50 (UTC+8)</text></svg>
